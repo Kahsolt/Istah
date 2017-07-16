@@ -1,0 +1,18 @@
+>>'[Get the Nth number in Fibonacci Sequence]'
+/>'Input number n: '
+<<n
+a=0
+b=1
+<n<=2?b=n-1
+|*?
+	[!(n<=0)?	; no > here,so must change a way
+		tmp=b
+		b=a+b
+		a=tmp
+		n=n-1
+	]
+>
+>>'The Nth number is:'
+>>b
+
+

@@ -1,0 +1,26 @@
+Hello='Hello'..' '..'Istah'..'!\n====='
+>>Hello
+>>'VESL test...'
+
+PI=3.14159
+r=5
+>>'=>r is '..r..' then, the circle Area is about:'
+/>'A='/>PI*r*r>>'m^2'
+
+>>'=>Test link, set y alias r'
+y&=r
+>>y
+>>'=>modify r'
+r=75
+>>'=>then see y'
+>>y
+>>'=>clean r'
+r=.
+>>'=>then see y'
+>>y
+
+>>'=>del Hello'
+Hello=!
+>>'=>try use Hello'
+>>Hello
+

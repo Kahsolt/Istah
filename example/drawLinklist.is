@@ -1,0 +1,12 @@
+base=[.,-1]
+a=[1,&base]
+b=[2,&a]
+c=[3,&b]
+d=['count',&c]
+e=['Let\'s',&d]
+ptr->&e		; pointer to the head's Entity
+[ptr:2!=-1?	; use brakets () carefully in loops, better not
+	>>ptr:1
+	ptr->(ptr:2)
+]
+

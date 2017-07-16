@@ -1,0 +1,25 @@
+$hanoi={|
+	<N==1?
+		$move{}
+	|*?
+		N=N-1 _=b b=c c=_
+		$hanoi{}
+		N=N+1 _=b b=c c=_	; restore env
+		
+		$move{}
+		
+		N=N-1 _=a a=b b=_
+		$hanoi{}
+		N=N+1 _=a a=b b=_	; restore env
+	>
+}
+$move={|
+	>>a..' -> '..c
+}
+
+a='A'
+b='B'
+c='C'
+/>'Enter layer count N: '
+<<N
+$hanoi{}

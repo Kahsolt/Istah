@@ -1,0 +1,18 @@
+# Istah type Library
+  Name: type
+  Author: Kahsolt
+  Timestamp: 2017-1-4
+  Version: 1.0
+#
+; {{Func List}}
+; $isnum={_type_isnum_x|
+
+#--------------------------------#
+$isnum={_type_isnum_x|
+	type="type("~_type_isnum_x~")"
+	<type=='nil'?
+		=>'NaN'
+	|*?
+		=>'Number'
+	>
+}

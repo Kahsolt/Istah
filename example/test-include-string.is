@@ -1,0 +1,16 @@
++>'string'
+
+len=$len{'ABCDEF'}
+>>len
+str='Hello World'
+len=$len{str}
+>>len
+sub=$sub{str,3,9}
+>>sub
+
+str='Hello World!'
+sub='Hello'
+ret=$has{str,sub}
+>>ret
+ret=$has{str,'Hallo'}
+>>ret

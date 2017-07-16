@@ -1,0 +1,9 @@
+>>'[Control Test]'
+i=0 [i&&i<=10
+	<i%2==0?
+		>>i..' is Even'
+	|*?
+		>>i..' is Odd'
+	>
+i=i+1]
+@i

@@ -1,0 +1,7 @@
++>'def.ish'
+
+/>'Input radius r: '
+<<r
+A=$getArea{r}
+>>'Circle Area is:'
+>>A

@@ -1,0 +1,13 @@
+$add={_x,_y|
+        _x=$dec{_x}
+        _y=$dec{_y}
+=>_x+_y}
+$dec={_z|
+=>_z-1}
+$hello={|
+>>'Hello'}
+
+$hello{}
+sum=$add{10,20}
+>>'sum with dec='..sum..'\n'
+@*

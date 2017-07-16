@@ -1,0 +1,50 @@
+# Istah math Library
+  Name: math
+  Author: Kahsolt
+  Timestamp: 2017-1-4
+  Version: 1.3
+#
+; {{Func List}}
+; $abs={_math_abs_x|
+; $round={_math_round_x|
+; $sin={_math_sin_x|
+; $cos={_math_cos_x|
+; $tan={_math_tan_x|
+; $gcd={_math_gcd_x,_math_gcd_y|
+
+#-----------------------------------------#
+PI:=3.14159265358979
+
+$abs={_math_abs_x|
+	<_math_abs_x<0?
+		=>(-_math_abs_x)
+	|*?
+		=>_math_abs_x
+	>
+}
+$round={_math_round_x|
+	<_math_round_x%1>=0.5?
+		=>_math_round_x//1+1
+	|*?
+		=>_math_round_x//1
+	>
+}
+$sin={_math_sin_x|
+	_math_sin_x="math.sin("~_math_sin_x~")"
+	=>_math_sin_x
+}
+$cos={_math_cos_x|
+	_math_cos_x="math.cos("~_math_cos_x~")"
+	=>_math_cos_x
+}
+$tan={_math_tan_x|
+	_math_tan_x="math.tan("~_math_tan_x~")"
+	=>_math_tan_x
+}
+$gcd={_math_gcd_x,_math_gcd_y|
+	[_math_gcd_x!=_math_gcd_y?
+		<_math_gcd_x>_math_gcd_y?_math_gcd_x=_math_gcd_x%_math_gcd_y
+		|*?_math_gcd_y=_math_gcd_y%_math_gcd_x>
+	]
+	=>_math_gcd_x
+}

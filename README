@@ -1,0 +1,50 @@
+[面向用户]
+0.运行环境
+	lua5.3
+1.istah.lua		Istah解释器的启动脚本
+	用法：istah.lua <脚本文件名>
+  Istah.py		Istah简单IDE，只能运行无输入脚本
+  	用法：直接启动
+2.iscfg.lua		配置文件
+	这里有GC开关、调试信息开关和一些默认参数设置
+3.example文件夹
+	一些简单可用的内置用例
+4.doc文件夹
+	语法书ppt			;包含了当前版本所支持的所有功能
+
+[面向开发者]
+0.开发环境
+	lua5.3
+	linux-deepin
+	utf-8
+1.工程模块
+	isdbg.lua		调试版解释器
+		就是带有调试信息显示的解释器
+	isenv.lua		全局公共设定
+		一系列公约常量和状态存储变量
+	iscfg.lua		配置文件
+	islex.lua		词法分析模块
+	isparse.lua		语法分析并解释执行模块
+	isname.lua		名字-实体管理模块
+	isgc.lua		垃圾回收模块
+	islua.lua		lua原生调用模块
+	ishub.lua		引入预处理模块
+	iserr.lua		错误抛出模块
+2.doc文件夹
+	文法说明txt				;此项动比较频繁，具还请参考isparse.lua中每个解析函数的注释
+	设计书ppt				;废弃不再更新
+
+[面向我自己]
+0.README
+	工程结构简要说明
+1.CHANGELOG
+	更新说明
+2.backup文件夹
+	部分历史版本，仅作艰辛的纪念:)
+	
+	
+by Kahsolt
+2016年12月22日纪念碑谷
+2017年1月1日纪念碑谷V2.0
+2017年1月2日纪念碑谷V3.0
+2017年1月4日纪念碑谷V4.0

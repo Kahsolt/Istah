@@ -1,0 +1,8 @@
+# Circle_Area.is #
+>>'Hello Istah!'
+/>'Input the radius number r: '
+<<r
+PI:=3.1415926
+>>'Circle Area is about:'
+>>PI*r^2
+;>>PI*r^2//1

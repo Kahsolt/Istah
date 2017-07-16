@@ -1,0 +1,8 @@
+>>'[Test 3*a+(b/2)^2-3]'
+>>'Input a:'
+<<a
+>>'Input b:'
+<<b
+>>(3*a+(b/2)^2-3)
+>>'test a complex expression:'
+>>+(a^2-1024/(+32+5*8)%b)

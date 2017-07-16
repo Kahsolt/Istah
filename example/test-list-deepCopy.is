@@ -1,0 +1,9 @@
+l=[1,2,3]
+ll&=l
+ptr->&l
+copyL=l
+
+ptr:2=-5
+ll:1=-3
+copyL:3=-7
+@*

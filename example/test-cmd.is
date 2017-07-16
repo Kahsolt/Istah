@@ -1,0 +1,14 @@
+angle=30
+x="math.cos("~angle~")"
+>>x
+str='whatis'
+sub="string.sub('"~str~"',1,3)"
+>>sub
+
+i=[12,2]
+j='head'
+x=2
+type="type("~x~")"
+>>type
+type="type("~j~")"
+>>type

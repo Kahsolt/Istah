@@ -1,0 +1,12 @@
+PI=3.14
+>>PI
+PI:=PI*2
+>>PI
+PI=1.2
+>>PI
+PI2&=PI	; lock is on the Entity
+PI2=0
+>>PI2@*
+PI2:=!	; unlock
+PI2=2
+>>PI2@*

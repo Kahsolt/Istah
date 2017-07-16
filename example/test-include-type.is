@@ -1,0 +1,8 @@
++>'type'
+
+j='head'
+x=2
+ret=$isnum{j}
+>>ret
+ret=$isnum{x}
+>>ret

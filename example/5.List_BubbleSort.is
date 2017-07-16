@@ -1,0 +1,18 @@
+a=[7,9,2,1,8,6,4,5,3,10]
+>>'Before Sort:'
+>>a
+i=1
+[i<=10?
+	j=1
+	[j<=10?
+		<a:i<a:j?
+			_=a:i	; _ as the Global Temp Vesl
+			a:i=a:j
+			a:j=_
+		>
+		j=j+1
+	]
+	i=i+1
+]
+>>'After Sort:'
+>>a

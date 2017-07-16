@@ -1,0 +1,15 @@
+# get the GCD of two numbers #
+>>'GCD Test'
+/>'Input number x:'
+<<x
+/>'Input number y:'
+<<y
+prdc=x*y
+[x!=y?
+	<x>y?x=x-y
+	|*?y=y-x>
+]
+>>'the GCD is:'
+>>x
+>>'the LCM is:'
+>>prdc/x

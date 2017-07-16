@@ -1,0 +1,9 @@
+>>'[Calc the factorial of number x]'
+/>'Input a number x: '
+<<x
+ret=1
+[x>=1?
+ret=ret*x
+x=x-1]
+>>'The result is:'
+>>ret

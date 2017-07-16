@@ -1,0 +1,18 @@
+B=[1,2]
+A&=B	; alias, right value as a vesl
+@*
+
+B=[1,2]
+A->&B	; pointer, right value as an Indexer
+;A->1	; DANGEROUS!
+@*
+
+B=[1,2]
+A=&B    ; get addres, recommanded to use only in List
+@*
+
+A=!
+B=[1,2]
+A=B	; deep copy
+@*
+

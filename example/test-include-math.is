@@ -1,0 +1,13 @@
++>'math'
+
+>>'Show PI:'
+>>PI
+
+>>'Use directly tan in math:'
+ret3=$tan{50}
+>>ret3
+
+>>'Use sin and cos to calc tan:'
+ret1=$sin{50}
+ret2=$cos{50}
+>>ret1/ret2

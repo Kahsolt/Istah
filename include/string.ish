@@ -1,0 +1,28 @@
+# Istah string Library
+  Name: string
+  Author: Kahsolt
+  Timestamp: 2017-1-4
+  Version: 1.1
+#
+; {{Func List}}
+; $len={_string_len_str|
+; $sub={_string_sub_str,_string_sub_i,_string_sub_j|
+; $has={_string_has_str,_string_has_sub|
+
+#-----------------------------------------------------------------------------------------#
+$len={_string_len_str|
+	_string_len_str="string.len('"~_string_len_str~"')"
+	=>_string_len_str
+}
+$sub={_string_sub_str,_string_sub_i,_string_sub_j|
+	_string_sub_str="string.sub('"~_string_sub_str~"',"~_string_sub_i~","~_string_sub_j~")"
+	=>_string_sub_str
+}
+$has={_string_has_str,_string_has_sub|
+	_string_has_str="string.find('"~_string_has_str~"','"~_string_has_sub~"')"
+	<_string_has_str!='nil'?
+		=>'Yes'
+	|*?
+		=>'No'
+	>
+}

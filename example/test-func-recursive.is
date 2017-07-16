@@ -1,0 +1,8 @@
+$pwr={_ans,_base,_exp|
+        <_exp==0?=>_ans>
+        $pwr{_ans*_base,_base,_exp-1}
+}
+ret=$pwr{1,3,5}
+>>ret
+@*
+
