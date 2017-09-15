@@ -1,0 +1,34 @@
+# Istah pseudo-asm Module
+  Name: isasm
+  Author: Kahsolt
+  Timestamp: 2017-1-8
+  Version: 1.0
+#
+
+STACK=[]
+ESP=1		; points to the next available vacancy
+
+$PUSH={_isasm_push|
+	STACK:ESP=_isasm_push
+	ESP=ESP+1
+}
+$POP={|
+	ESP=ESP-1
+	=>STACK:ESP
+}
+$ADD={|
+	ESP=ESP-1
+	STACK:(ESP-1)=(STACK:ESP-1)+(STACK:ESP)
+}
+$SUB={|
+	ESP=ESP-1
+	STACK:(ESP-1)=(STACK:ESP-1)-(STACK:ESP)
+}
+$MUL={|
+	ESP=ESP-1
+	STACK:(ESP-1)=(STACK:ESP-1)*(STACK:ESP)
+}
+$DIV={|
+	ESP=ESP-1
+	STACK:(ESP-1)=(STACK:ESP-1)//(STACK:ESP)
+}

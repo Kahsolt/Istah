@@ -8,6 +8,6 @@ $hello={|
 >>'Hello'}
 
 $hello{}
-sum=$add{10,20}
->>'sum with dec='..sum..'\n'
+>>'Add with dec:'
+>>$add{10,20}
 @*

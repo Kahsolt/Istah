@@ -1,0 +1,12 @@
++>'isasm'
+
+>>'Calc 5*(7-2)//3:'
+$PUSH{5}
+$PUSH{7}
+$PUSH{2}
+$SUB{}
+$MUL{}
+$PUSH{3}
+$DIV{}
+/>'='>>$POP{}
+

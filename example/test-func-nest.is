@@ -3,5 +3,5 @@ $dec={_x|
 	_x=$inc{_x}
 =>_x-1}
 
-ret=$dec{10}
->>'Ret='..ret
+/>'Ret='
+>>$dec{10}

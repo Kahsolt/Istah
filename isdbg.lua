@@ -3,8 +3,8 @@
 -- Istah Debugger
 -- Name: isdbg
 -- Author: Kahsolt
--- Time: 2016-12-13
--- Version: 1.2
+-- Time: 2017-1-7
+-- Version: 1.3
 -- Lua Ver: 5.3
 -----------------------------------------------------------------------------
 
@@ -13,8 +13,8 @@ require 'isparse'
 local function help()
 	print('The Istah Debugger')
 	print('Usage:')
-	print('\tIslex Test:\tisdbg l <filename>')
-	print('\tIsparse Test:\tisdbg p <filename> [-all|-nogc|-noset]')		-- nogc: disable gc module
+	print('\tDebug lexer:\tisdbg <filename> -l')
+	print('\tDebug parser:\tisdbg <filename> -p [-all|-nogc|-noset]')		-- nogc: disable gc module
 																	-- noset: no quick set, use manual setting
 	os.exit()
 end
@@ -22,22 +22,23 @@ end
 -----------
 -- Entry --
 -----------
-if #arg < 2 then
+if #arg <= 1 then
 	help()
-elseif arg[1] == 'l' then
+elseif arg[2] == '-l' then
+	print('[Debug_LEX]')
 	islex.test(arg[2])
-elseif arg[1] == 'p' then
+elseif arg[2] == '-p' then
 	if arg[3] == '-all' then
-		print('[Debug_ALL]')
+		print('[Debug_PARSE_ALL]')
 		Istah_Mode('Debug_ALL')
 	elseif arg[3] == '-nogc' then
-		print('[Debug_NO_GC]')
+		print('[Debug_PARSE_NO_GC]')
 		Istah_Mode('Debug_NO_GC')
 	elseif arg[3] == '-noset' then
-		print('[Debug_NO_SET]')
+		print('[Debug_PARSE_NO_SET]')
 	else
-		print('[Debug]')
+		print('[Debug_PARSE]')
 		Istah_Mode('Debug')
 	end
-	isparse.nextExecution(arg[2])
+	isparse.nextExecution(arg[1])
 end

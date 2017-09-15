@@ -3,7 +3,7 @@
 -- Istah Parser Module
 -- Name: isparse
 -- Author: Kahsolt
--- Time: 2016-12-10
+-- Time: 2017-1-4
 -- Version: 3.1
 -- Lua Ver: 5.3
 -----------------------------------------------------------------------------
@@ -264,10 +264,19 @@ function parseStatement()						-- <语句>	::=	<容器处理>|<函数处理>|<�
 			islex.gotoNotch(_main_notch)
 		end
 	end
-	function parseStatementReturn()				-- <退返句>::='=>'{<数符式>}
+	function parseStatementReturn()				-- <退返句>::='=>'{<数符式>|<调用句>}
 		dbg('SR')
 		absorbToken('RET')
-		if testToken('ADD') or testToken('SUB') or testToken('LRDBR') or testToken('NUM') or testToken('STR') or testToken('VESL') then
+		if testToken('FUNC') then
+			parseStatementHandleFunction()		-- FUNC call, with attainment of Ret_Func
+			local _ret = Ret_Func
+			if Notch_Func.cur then
+				Ret_Func = _ret
+				Msg_Func = 'return'
+			else
+				err(0,'Fatal: Missing a Notch to return')
+			end
+		elseif testToken('ADD') or testToken('SUB') or testToken('LRDBR') or testToken('NUM') or testToken('STR') or testToken('VESL') then
 			local _ret=parseData()
 			if Notch_Func.cur then
 				Ret_Func = _ret
@@ -314,31 +323,43 @@ function parseStatement()						-- <语句>	::=	<容器处理>|<函数处理>|<�
 		local UNTYPED = true		-- used by RAW INPUT
 		isname.linkNameEntity(_vesl,_value,UNTYPED)
 	end
-	function parseStatementOutput()				-- <输出句>::=('>>'|'/>')<数符式>|<列表容器>
+	function parseStatementOutput()				-- <输出句>::=('>>'|'/>')<数符式>|<列表容器>|<调用句>
 		dbg('SO')
 		local _data
 		local _list
 		if absorbToken('WRITE') then		-- '/>'
-			if testToken('VESL') and isname.getEntityType(Token.value)=='LIST' then
-				_list=Token.value
-			end
-			_data = parseData()
-			if type(_data)=='table' then
-				local _showIndex = true
-				isname.displayList(_list,_showIndex)
+			if testToken('FUNC') then
+				parseStatementHandleFunction()		-- FUNC call, with attainment of Ret_Func
+				local _ret = Ret_Func
+				io.write(tostring(_ret) or 'NIL')
 			else
-				io.write(tostring(_data) or 'NIL')
+				if testToken('VESL') and isname.getEntityType(Token.value)=='LIST' then
+					_list=Token.value
+				end
+				_data = parseData()
+				if type(_data)=='table' then
+					local _showIndex = true
+					isname.displayList(_list,_showIndex)
+				else
+					io.write(tostring(_data) or 'NIL')
+				end
 			end
 		elseif absorbToken('OUTPUT') then	-- '>>'
-			if testToken('VESL') and isname.getEntityType(Token.value)=='LIST' then
-				_list=Token.value
-			end
-			_data = parseData()
-			if type(_data)=='table' then
-				local _showIndex = false
-				isname.displayList(_list,_showIndex)
+			if testToken('FUNC') then
+				parseStatementHandleFunction()		-- FUNC call, with attainment of Ret_Func
+				local _ret = Ret_Func
+				print(tostring(_ret) or 'NIL')
 			else
-				print(tostring(_data) or 'NIL')
+				if testToken('VESL') and isname.getEntityType(Token.value)=='LIST' then
+					_list=Token.value
+				end
+				_data = parseData()
+				if type(_data)=='table' then
+					local _showIndex = false
+					isname.displayList(_list,_showIndex)
+				else
+					print(tostring(_data) or 'NIL')
+				end
 			end
 		end
 	end

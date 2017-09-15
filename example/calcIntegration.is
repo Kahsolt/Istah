@@ -4,13 +4,12 @@ $itgSin={_xstart,_xend,_step|
 	_ans=0
 	[_xstart<=_xend?
 		_y=$sin{_xstart}     
-        	_ans=_ans+_y*_step
+		_ans=_ans+_y*_step
 	_xstart=_xstart+_step]
 	_xstart=_ans
 	_ans=! _y=!
 	=>_xstart
 }
 
-sum=$itgSin{0,PI,0.01}
 >>'Integration Sum of Sin(0,PI) is about:'
->>sum
+>>$itgSin{0,PI,0.01}

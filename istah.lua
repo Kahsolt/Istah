@@ -13,18 +13,16 @@ require 'isparse'
 local function help()
 	print('The Istah Language Interpreter')
 	print('Usage:')
-	--print('\tInteractive Mode:\tistah')
-	--print('\tFile Execution Mode:\tistah <filename>')
-	print('\tistah <filename>')
+	print('\tistah [filename]')
 	os.exit()
 end
 
 -----------
 -- Entry --
 -----------
-if #arg ~= 1 then
-	help()
-elseif arg[1] then
+if #arg==1 and  arg[1] then
 	Istah_Mode('Release')
 	isparse.nextExecution(arg[1])
+else
+	help()
 end

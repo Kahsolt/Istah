@@ -1,7 +1,0 @@
-$dec={_x|
-	$inc={_y|=>_y+1}
-	_x=$inc{_x}
-=>_x-1}
-
-ret=$dec{10}
->>'Ret='..ret

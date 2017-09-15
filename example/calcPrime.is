@@ -1,0 +1,52 @@
+; the Const
+INF:=2147483647	; unreachable _distance
+N:=5		; node count
+; the Map
+r1=[0,3,4,2,INF]
+r2=[3,0,INF,5,7]
+r3=[4,INF,0,1,INF]
+r4=[2,5,1,0,3]
+r5=[INF,7,INF,3,0]
+; the Prime Algorithm
+$prime={|
+	_res=0	; the Answer length
+	; init the _dis LIST - _distance of each node to the tree
+	_dis=r1
+	_dis:1=0		; make sure first node adds to tree
+	; expand the spanning tree
+	_i=2 [_i<=N?
+		_min_dis=INF
+		_idx=-1
+		_j=1 [_j<=N?
+			<_dis:_j!=0&&_dis:_j<_min_dis?
+				_min_dis=_dis:_j
+				_idx=_j>
+		_j=_j+1]
+		_dis:_idx=0	; got a new node
+		_res=_res+_min_dis
+		_k=1 [_k<=N?
+			_ptr->&r1+_idx-1	; equal to f[_idx] in C
+			<_dis:_k!=0&&_ptr:_k<_dis:_k?
+				_dis:_k=_ptr:_k>
+		_k=_k+1]
+	_i=_i+1]
+	
+	; clean the locals
+	_dis=! _ptr=!
+	_i=! _j=! _k=!
+	_min_dis=! _idx=!
+	
+	; return result
+	=>_res
+}
+
+>>'[Original Map]'
+>>'   3     7      '
+>>'A-----B-----E   '
+>>'|\\_ 2 |   _/   '
+>>'|  \\_ |5_/     '
+>>'|4   \\|/  3    '
+>>'C-----D         '
+>>'   1            '
+>>'[After Prime]\nMST length is:'
+>>$prime{}

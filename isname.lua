@@ -3,7 +3,7 @@
 -- Istah Namespace & Entity module
 -- Name: isname
 -- Author: Kahsolt
--- Time: 2016-12-21
+-- Time: 2017-1-4
 -- Version: 2.5
 -- Lua Ver: 5.3
 -----------------------------------------------------------------------------
